@@ -1,0 +1,27 @@
+﻿@* @model FrontEndService.Models.WebDTO.BioDTO.PatientBioDTO
+
+<div class="tab active" id="patient-info">
+    <h2>Patient Info</h2>
+    <div class="patient-info">
+        <p><strong>Full Name:</strong> @Model.FullName</p>
+       
+        <p><strong>Contact Number:</strong> @Model.ContactNumber</p>
+        <p><strong>Email:</strong> @Model.EmailAddress</p>
+        <p><strong>Address:</strong> @Model.Address</p>
+    </div>
+</div>
+ *@
+
+@model FrontEndService.Models.WebDTO.BioDTO.PatientBioDTO
+
+<div class="tab active" id="patient-info">
+    <h2>Patient Info</h2>
+    <div class="patient-info">
+        <p><strong>Full Name:</strong> @Model.FullName</p>
+        <p><strong>Contact Number:</strong> @Model.ContactNumber</p>
+        <p><strong>Email:</strong> @Model.EmailAddress</p>
+        <p><strong>Address:</strong> @Model.DateOfBirth</p>
+        <p><strong>Email Address:</strong> @Model.EmailAddress</p>
+        <p><strong>Medical History:</strong> @Model.MedicalHistory</p>
+    </div>
+</div>

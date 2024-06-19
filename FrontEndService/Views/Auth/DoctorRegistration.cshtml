@@ -1,0 +1,37 @@
+﻿@model FrontEndService.Models.WebDTO.SignUpDTO.RegisterUserDTO
+@{
+    Layout = null; // or Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration Form</title>
+    <link rel="stylesheet" href="/css/styless.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form asp-action="DoctorRegistration" method="post">
+            <h2>Doctor Registration</h2>
+            <div class="input-field">
+                <input asp-for="UserName" required>
+                <label>Enter your User Name</label>
+            </div>
+            <div class="input-field">
+                <input asp-for="Email" type="email" required>
+                <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+                <input asp-for="Password" type="password" required>
+                <label>Create your password</label>
+            </div>
+
+            <button type="submit">Register</button>
+            <div class="register">
+                <p>Already have an account? <a asp-action="Login">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

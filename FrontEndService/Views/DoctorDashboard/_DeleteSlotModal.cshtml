@@ -1,0 +1,15 @@
+﻿@model FrontEndService.Models.WebDTO.SlotDTO.SlotDTO
+
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideDeleteModal()">&times;</span>
+        <h2>Delete Slot</h2>
+        <p>Are you sure you want to delete this slot?</p>
+        @using (Html.BeginForm("DeleteSlot", "DoctorDashboard", FormMethod.Post, new { id = "deleteForm" }))
+        {
+            @Html.HiddenFor(model => model.SlotId)
+            <button type="submit">Delete</button>
+            <button type="button" onclick="hideDeleteModal()">Cancel</button>
+        }
+    </div>
+</div>

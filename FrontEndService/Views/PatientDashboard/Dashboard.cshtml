@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null; // Ensuring no default layout is applied
+}
+@{
+    ViewData["Title"] = "Patient Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <h2>Patient Dashboard</h2>
+            <ul>
+                <li><a href="#" data-url="@Url.Action("LoadPatientInfo", "PatientDashboard")" onclick="loadSection(event, this)">View Patient Info</a></li>
+                <li><a href="#" data-url="@Url.Action("LoadEditPatientInfo", "PatientDashboard")" onclick="loadSection(event, this)">Edit Patient Info</a></li>               
+                <li><a href="#" data-url="@Url.Action("LoadAppointments", "PatientDashboard")" onclick="loadSection(event, this)">Appointments</a></li>
+                <li><a href="#" data-url="@Url.Action("LoadMedicalHistory", "PatientDashboard")" onclick="loadSection(event, this)">Medical History</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div id="section-content">
+                <!-- Section content will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function loadSection(event, element) {
+            event.preventDefault();
+            var url = $(element).data("url");
+
+            console.log(`Fetching data from: ${url}`); // Debugging log
+
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (data) {
+                    console.log(`Data received: ${data}`); // Debugging log
+                    $('#section-content').html(data);
+                },
+                error: function (xhr, status, error) {
+                    console.error(`Error fetching data: ${status} - ${error}`); // Debugging log
+                    alert("An error occurred while loading the section.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

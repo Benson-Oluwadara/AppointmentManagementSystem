@@ -1,0 +1,57 @@
+﻿@* @model FrontEndService.Models.WebDTO.BioDTO.BioDTO
+
+<div class="tab" id="edit-doctor-bio">
+    <h2>Edit Doctor Bio</h2>
+    <form asp-action="EditBio" method="post">
+        <div>
+            <label for="FullName">Full Name</label>
+            <input type="text" id="FullName" name="FullName" value="@Model.FullName" />
+        </div>
+        <div>
+            <label for="Specialization">Specialization</label>
+            <input type="text" id="Specialization" name="Specialization" value="@Model.Specialization" />
+        </div>
+        <div>
+            <label for="ContactNumber">Contact Number</label>
+            <input type="text" id="ContactNumber" name="ContactNumber" value="@Model.ContactNumber" />
+        </div>
+        <div>
+            <label for="EmailAddress">Email Address</label>
+            <input type="text" id="EmailAddress" name="EmailAddress" value="@Model.EmailAddress" />
+        </div>
+        <div>
+            <label for="OfficeAddress">Office Address</label>
+            <input type="text" id="OfficeAddress" name="OfficeAddress" value="@Model.OfficeAddress" />
+        </div>
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+ *@
+
+@model FrontEndService.Models.WebDTO.BioDTO.BioDTO
+@using (Html.BeginForm("EditBio", "DoctorDashboard", FormMethod.Post))
+{
+    //@Html.HiddenFor(model => model.BioId)
+    <div>
+        @Html.LabelFor(model => model.FullName)
+        @Html.EditorFor(model => model.FullName)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Specialization)
+        @Html.EditorFor(model => model.Specialization)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.ContactNumber)
+        @Html.EditorFor(model => model.ContactNumber)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.EmailAddress)
+        @Html.EditorFor(model => model.EmailAddress)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.OfficeAddress)
+        @Html.EditorFor(model => model.OfficeAddress)
+    </div>
+    <!-- Add other bio fields here -->
+    <button type="submit">Save Changes</button>
+}

@@ -1,0 +1,37 @@
+﻿ <div class="tab" id="doctor-availability">
+    <h2>Set Availability</h2>
+    <form id="set-availability-form">
+        <label for="availability-date">Date:</label>
+        <input type="date" id="availability-date" name="availability-date"><br>
+        <label for="availability-time">Time:</label>
+        <input type="time" id="availability-time" name="availability-time"><br>
+        <button type="submit">Set Availability</button>
+    </form>
+    <div id="availability-list">
+        <!-- Available slots will be listed here -->
+    </div>
+</div>
+
+<script>
+    document.getElementById('set-availability-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var date = document.getElementById('availability-date').value;
+        var time = document.getElementById('availability-time').value;
+
+        if (date && time) {
+            var availability = {
+                date: date,
+                time: time
+            };
+
+            var availabilityList = document.getElementById('availability-list');
+            var availabilityItem = document.createElement('div');
+            availabilityItem.textContent = date + ' at ' + time;
+            availabilityList.appendChild(availabilityItem);
+
+            document.getElementById('set-availability-form').reset();
+        }
+    });
+</script>
+

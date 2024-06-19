@@ -1,0 +1,90 @@
+﻿@* @model FrontEndService.Models.WebDTO.BioDTO.PatientBioDTO
+
+<div class="tab" id="edit-patient-info">
+    <h2>Edit Patient Info</h2>
+    @using (Html.BeginForm("EditPatientInfo", "PatientDashboard", FormMethod.Post))
+    {
+        <div>
+            @Html.LabelFor(model => model.FullName)
+            @Html.EditorFor(model => model.FullName)
+        </div>
+        
+        <div>
+            @Html.LabelFor(model => model.ContactNumber)
+            @Html.EditorFor(model => model.ContactNumber)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.EmailAddress)
+            @Html.EditorFor(model => model.EmailAddress)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Address)
+            @Html.EditorFor(model => model.Address)
+        </div>
+        <!-- Add other fields here -->
+        <button type="submit">Save Changes</button>
+    }
+</div>
+ *@
+
+@* @model FrontEndService.Models.WebDTO.BioDTO.PatientBioDTO
+
+<div class="tab" id="edit-patient-info">
+    <h2>Edit Patient Info</h2>
+    @using (Html.BeginForm("EditPatientInfo", "PatientDashboard", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken() <!-- Include anti-forgery token -->
+        <div>
+            @Html.LabelFor(model => model.FullName)
+            @Html.EditorFor(model => model.FullName)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ContactNumber)
+            @Html.EditorFor(model => model.ContactNumber)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.EmailAddress)
+            @Html.EditorFor(model => model.EmailAddress)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Address)
+            @Html.EditorFor(model => model.Address)
+        </div>
+        <button type="submit">Save Changes</button>
+    }
+</div>
+
+ *@
+
+
+@model FrontEndService.Models.WebDTO.BioDTO.PatientBioDTO
+@using (Html.BeginForm("EditPatientInfo", "PatientDashboard", FormMethod.Post))
+{
+    //@Html.HiddenFor(model => model.BioId)
+    <div>
+        @Html.LabelFor(model => model.FullName)
+        @Html.EditorFor(model => model.FullName)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.EmailAddress)
+        @Html.EditorFor(model => model.EmailAddress)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.ContactNumber)
+        @Html.EditorFor(model => model.ContactNumber)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Address)
+        @Html.EditorFor(model => model.Address)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.DateOfBirth)
+        @Html.EditorFor(model => model.DateOfBirth)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.MedicalHistory)
+        @Html.EditorFor(model => model.MedicalHistory)
+    </div>
+    <!-- Add other bio fields here -->
+    <button type="submit">Save Changes</button>
+}

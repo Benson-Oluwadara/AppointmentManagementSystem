@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null; // or Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Selection</title>
+    <link rel="stylesheet" href="/css/styless.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form asp-action="RoleSelection" method="post">
+            <h2>Select Your Role</h2>
+            <div class="role-options">
+                <button type="submit" name="role" value="Doctor"><a asp-controller="Auth" asp-action="DoctorRegistration"></a>I am a Doctor</button>
+                
+                <button type="submit" name="role" value="Patient"><a asp-controller="Auth" asp-action="PatientRegistration"></a>I am a Patient</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

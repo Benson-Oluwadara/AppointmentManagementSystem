@@ -1,0 +1,45 @@
+﻿@model FrontEndService.Models.WebDTO.LoginDTO.LoginUserDTO
+@{
+    Layout = null; // Ensuring no default layout is applied
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Login Form | CodingNepal</title>
+    <link rel="stylesheet" href="/css/styless.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form asp-action="Login" asp-controller="Auth" method="post">
+            <h2>Login</h2>
+            <div class="input-field">
+                <input asp-for="UserName" required>
+                <label>Enter your username</label>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="input-field">
+                <input asp-for="Password" type="password" required>
+                <label>Enter your password</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="forget">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Remember me</p>
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit">Log In</button>
+            <div class="register">
+                <p>Don't have an account? <a asp-controller="Auth" asp-action="RoleSelection">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
